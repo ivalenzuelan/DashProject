@@ -18,7 +18,6 @@ This project involves creating a server-client web application for video streami
 - **Objective:** Deploy and use the DASH.js tool to provide a basic video streaming service.
 - **Tasks:**
   - Create an `index.html` file to integrate DASH.js and stream a video using the provided MPD URL.
-  - Analyze the MPD document structure (XML, MPD, Period, AdaptationSet, SegmentTemplate, Representation).
 
     ![image](https://github.com/ivalenzuelan/IracP3/assets/125378917/417627b7-87e5-4971-8052-a5447f15f9f6)
 
@@ -29,7 +28,6 @@ This project involves creating a server-client web application for video streami
   - Use `x264` to encode video into different qualities (low, medium, high).
   - Use `MP4Box` to convert encoded videos to MP4.
   - Use Bento4 to segment videos for DASH and generate an MPD file.
-  - Update `index.html` to display the video and metrics (bitrate, buffer, representation).
 
 ![image](https://github.com/ivalenzuelan/IracP3/assets/125378917/aa5e3f98-d2c8-45aa-84b2-0fe0e43585ad)
 
@@ -57,7 +55,6 @@ This project involves creating a server-client web application for video streami
 - **Tasks:**
   - Implement alternative encryption methods (e.g., Widevine, PlayReady).
   - Set up a REST API for dynamic DRM key exchange.
-  - Document the implementation with detailed explanations and screenshots.
 
 ![image](https://github.com/ivalenzuelan/IracP3/assets/125378917/3084fe04-abac-4c5c-bd76-b62a29c9ee86)
 
