@@ -49,3 +49,4 @@ This project involves creating a server-client web application for video streami
   - Set up a REST API for dynamic DRM key exchange.
   - Document the implementation with detailed explanations and screenshots.
 
+![image](https://github.com/ivalenzuelan/IracP3/assets/125378917/8ea6d556-55a9-459e-b41b-7d03e210e4f3)
