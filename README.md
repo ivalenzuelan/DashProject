@@ -4,12 +4,11 @@ This project demonstrates the development of a basic video streaming web applica
 
 ## Table of Contents
 1. [Introduction](#introduction)
-2. [Setup](#setup)
-3. [Part 1: DASH.js Introduction](#part-1-dashjs-introduction)
-4. [Part 2: Video Preparation and Metrics](#part-2-video-preparation-and-metrics)
-5. [Part 3: DRM Management](#part-3-drm-management)
-6. [Part 4: Advanced Metrics Visualization](#part-4-advanced-metrics-visualization)
-7. [Optional Part 5: Advanced DRM Management](#optional-part-5-advanced-drm-management)
+2. [Part 1: DASH.js Introduction](#part-1-dashjs-introduction)
+3. [Part 2: Video Preparation and Metrics](#part-2-video-preparation-and-metrics)
+4. [Part 3: DRM Management](#part-3-drm-management)
+5. [Part 4: Advanced Metrics Visualization](#part-4-advanced-metrics-visualization)
+6. [Optional Part 5: Advanced DRM Management](#optional-part-5-advanced-drm-management)
 
 ## Introduction
 This project involves creating a server-client web application for video streaming using the DASH.js library. The development is done within a Docker container, which provides all the necessary tools and frameworks.
