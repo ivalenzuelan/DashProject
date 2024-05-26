@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>IRAC - LAB3 - TEAM20</title>
+        <style>
+            video {
+                width: 640px;
+                height: 360px;
+            }
+        </style>
+    </head>
+<body>
+    <h1>Part 4: Advanced metrics visualization</h1>
+
+    <div class="code">
+        <video class="dashjs-player" autoplay controls preload="auto" muted></video>
+    </div>
+
+    <div class="code">
+        <p>Video Bitrate: <span id="bitrate"></span> kbps</p>
+        <p>Video Buffer: <span id="buffer"></span> seconds</p>
+        <p>Video Representation: <span id="representation"></span></p>
+    </div>
+
+    <div style="width:1640px; height:360px">
+        <canvas id="myChart"></canvas>
+    </div>
+    <script>
+        var graphBitrate = new Array();
+        var graphBuffer = new Array();
+        var graphTime = new Array();
+        var myChart;
+
+        
+    </script>
+
+    <script src="http://cdn.dashjs.org/latest/dash.all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+
+    <script>
+        const protData = {
+            "org.w3.clearkey": {
+            "clearkeys": {
+                "oW5AK5BW43HzbTSKpiu3SQ": "hyN9IKGfWKdAwFaE5pm0qg"
+            }
+            }
+        };
+        document.addEventListener("DOMContentLoaded", function () {
+            init();
+        });
+        function init() {
+            var video,
+                player,
+                mpd_url = "./output_encrypted/stream.mpd";
+            video = document.querySelector("video");
+            player = dashjs.MediaPlayer().create();
+            player.setProtectionData(protData);
+            player.initialize(video, mpd_url, true);
+            player.on(dashjs.MediaPlayer.events["PLAYBACK_ENDED"], function () {
+                clearInterval(eventPoller);
+            });
+            var eventPoller = setInterval(function () {
+                var streamInfo = player.getActiveStream().getStreamInfo();
+                var dashMetrics = player.getDashMetrics();
+                var dashAdapter = player.getDashAdapter();
+                if (dashMetrics && streamInfo) {
+                    const periodIdx = streamInfo.index;
+                    var repSwitch = dashMetrics.getCurrentRepresentationSwitch('video', true);
+                    var bufferLevel = dashMetrics.getCurrentBufferLevel('video', true);
+                    var bitrate = repSwitch ? Math.round(dashAdapter.
+                        getBandwidthForRepresentation(repSwitch.to, periodIdx) / 1000) : NaN;
+                    document.getElementById('buffer').innerText = bufferLevel + " secs";
+                    document.getElementById('bitrate').innerText = bitrate + " Kbps";
+                    document.getElementById('representation').innerText = repSwitch.to;
+                    graphBitrate.push(bitrate);
+                    graphBuffer.push(bufferLevel);
+                    graphTime.push(new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds() + ":" + new Date().getMilliseconds());
+                    const ctx = document.getElementById('myChart').getContext('2d');
+                    if (myChart) {
+                        myChart.destroy();
+                    }
+                    myChart = new Chart(ctx, {
+                                type: 'line',
+                                data: {
+                                    datasets: [
+                                        {
+                                            backgroundColor: 'rgba(37, 150, 190, 0.3)', 
+                                            borderColor: 'rgb(37, 150, 190)',
+                                            borderWidth: 2,
+                                            fill: true,
+                                            data: graphBitrate,
+                                            label: 'Bitrate',
+                                            yAxisID: 'right'
+                                        },
+                                        {
+                                            backgroundColor: 'rgba(253, 202, 225, 0.3)', 
+                                            borderColor: 'rgb(253, 202, 225)',
+                                            borderWidth: 2,
+                                            fill: true,
+                                            data: graphBuffer,
+                                            label: 'Buffer Level',
+                                            yAxisID: 'left'
+                                        }
+                                    ],
+                                    labels: graphTime
+                                },
+                                options: {
+                                    animation: { duration: 0 },
+                                    elements: { rectangle: { borderWidth: 2 } },
+                                    layout: { padding: 0 },
+                                    legend: {
+                                        display: true,
+                                        labels: { boxWidth: 16 }
+                                    },
+                                    maintainAspectRatio: false,
+                                    responsive: true,
+                                    scales: {
+                                        right: {
+                                            type: 'linear',
+                                            display: true,
+                                            position: 'right',
+                                            title: {
+                                                display: true,
+                                                text: 'Bitrate (Kbps)'
+                                            }
+                                        },
+                                        left: {
+                                            type: 'linear',
+                                            display: true,
+                                            position: 'left',
+                                            title: {
+                                                display: true,
+                                                text: 'Buffer level (s)'
+                                            },
+                                            grid: {
+                                                drawOnChartArea: false
+                                            }
+                                        }
+                                    },
+                                    title: { display: false },
+                                    tooltips: {
+                                        intersect: false,
+                                        mode: 'index',
+                                        position: 'nearest',
+                                        callbacks: {}
+                                    },
+                                    elements: {
+                                        line: {
+                                            cubicInterpolationMode: 'monotone' 
+                                        }
+                                    }
+                                }
+                            });
+
+                }
+            }, 500);
+        }
+    </script>
+    
+</body>
+</html>

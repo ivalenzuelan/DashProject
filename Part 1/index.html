@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRAC -LAB3 - TEAM20</title>
+    <style>
+        /* Estilos CSS aquí */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>dash.js Introduction</h1>
+        <video id="dashjs-player" controls autoplay>
+            <source src="https://dash.akamaized.net/envivio/EnvivioDash3/manifest.mpd" type="application/dash+xml">
+            Error.
+        </video>
+    </div>
+
+    <script src="http://cdn.dashjs.org/latest/dash.all.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Habilitar modo de depuración de Dash.js
+            dashjs.Debug.setLogToBrowserConsole(true);
+
+            // Inicializar el reproductor Dash.js
+            var player = dashjs.MediaPlayer().create();
+            player.initialize(document.querySelector("#dashjs-player"), "https://dash.akamaized.net/envivio/EnvivioDash3/manifest.mpd", true);
+        });
+    </script>
+</body>
+</html>
