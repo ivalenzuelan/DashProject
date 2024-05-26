@@ -62,4 +62,6 @@ This project involves creating a server-client web application for video streami
 ![image](https://github.com/ivalenzuelan/IracP3/assets/125378917/3084fe04-abac-4c5c-bd76-b62a29c9ee86)
 
 
+## Docker
+ivalenz/irac3_team20_2024_updated
 ![image](https://github.com/ivalenzuelan/IracP3/assets/125378917/8ea6d556-55a9-459e-b41b-7d03e210e4f3)
