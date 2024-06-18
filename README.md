@@ -29,7 +29,7 @@ This project involves creating a server-client web application for video streami
   - Use `MP4Box` to convert encoded videos to MP4.
   - Use Bento4 to segment videos for DASH and generate an MPD file.
 
-![image](https://github.com/ivalenzuelan/IracP3/assets/125378917/aa5e3f98-d2c8-45aa-84b2-0fe0e43585ad)
+    ![image](https://github.com/ivalenzuelan/IracP3/assets/125378917/aa5e3f98-d2c8-45aa-84b2-0fe0e43585ad)
 
 
 ## Part 3: DRM Management
@@ -39,7 +39,7 @@ This project involves creating a server-client web application for video streami
   - Update `index.html` to include DRM protection data.
   - Test the implementation by altering DRM keys and observing behavior.
 
-![image](https://github.com/ivalenzuelan/IracP3/assets/125378917/14955de8-ae6a-4c39-a753-eb4c4b557bfd)
+    ![image](https://github.com/ivalenzuelan/IracP3/assets/125378917/14955de8-ae6a-4c39-a753-eb4c4b557bfd)
 
 ## Part 4: Advanced Metrics Visualization
 - **Objective:** Enhance the web client to display advanced metrics in real-time.
@@ -47,7 +47,7 @@ This project involves creating a server-client web application for video streami
   - Integrate JavaScript libraries like ChartJS or VisJS to visualize metrics.
   - Implement the web client to show video quality changes and buffer levels graphically.
 
-![image](https://github.com/ivalenzuelan/IracP3/assets/125378917/e1853f4a-683c-42a5-b0c7-0c19d394ff77)
+    ![image](https://github.com/ivalenzuelan/IracP3/assets/125378917/e1853f4a-683c-42a5-b0c7-0c19d394ff77)
 
 
 ## Optional Part 5: Advanced DRM Management
@@ -56,9 +56,9 @@ This project involves creating a server-client web application for video streami
   - Implement alternative encryption methods (e.g., Widevine, PlayReady).
   - Set up a REST API for dynamic DRM key exchange.
 
-![image](https://github.com/ivalenzuelan/IracP3/assets/125378917/3084fe04-abac-4c5c-bd76-b62a29c9ee86)
+    ![image](https://github.com/ivalenzuelan/IracP3/assets/125378917/3084fe04-abac-4c5c-bd76-b62a29c9ee86)
 
 
 ## Docker
 ivalenz/irac3_team20_2024_updated
-![image](https://github.com/ivalenzuelan/IracP3/assets/125378917/8ea6d556-55a9-459e-b41b-7d03e210e4f3)
+    ![image](https://github.com/ivalenzuelan/IracP3/assets/125378917/8ea6d556-55a9-459e-b41b-7d03e210e4f3)
