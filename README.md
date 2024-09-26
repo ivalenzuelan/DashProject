@@ -1,5 +1,5 @@
 # DASH Video Streaming Web Application
-IRAC P3 - ETSIT
+ETSIT
 This project demonstrates the development of a basic video streaming web application using the MPEG-DASH protocol. The project is divided into several parts, each focusing on different aspects of video streaming, encoding, and DRM management.
 
 ## Table of Contents
